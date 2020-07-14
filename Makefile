@@ -14,8 +14,8 @@ clean: ## Remove built products in ./out
 .PHONY: build
 build: clean ## Build (for the current platform & architecture) to ./out
 	mkdir -p out
-	go build -o ./out .
+	go build -o ./out/unshorten .
 
 .PHONY: install
 install: ## Build & install unshorten to /usr/local/bin
-	go build -o /usr/local/bin .
+	go build -o /usr/local/bin/unshorten .
