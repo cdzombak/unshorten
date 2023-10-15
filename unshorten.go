@@ -6,25 +6,39 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
-var errTooManyRedirects = errors.New("too many redirects")
+var (
+	errTooManyRedirects = errors.New("too many redirects")
+
+	version = "<dev>"
+)
+
+func efprintf(f string, a ...any) {
+	_, _ = fmt.Fprintf(os.Stderr, f, a...)
+}
 
 func usage() {
-	fmt.Printf("Usage: %s [OPTIONS] URL\n", os.Args[0])
-	fmt.Printf("Unshorten the given URL, printing each redirect followed along the way.\n\n")
-	fmt.Printf("Options:\n")
+	efprintf("Usage: %s [OPTIONS] URL\n", filepath.Base(os.Args[0]))
+	efprintf("Unshorten the given URL, printing each redirect followed along the way.\n\n")
+	efprintf("Options:\n")
 	flag.PrintDefaults()
-	fmt.Printf("\nIssues:\n  https://github.com/cdzombak/unshorten/issues/new\n")
-	fmt.Printf("\nAuthor: Chris Dzombak <https://www.dzombak.com>\n")
+	efprintf("\nGitHub:\n  https://github.com/cdzombak/unshorten\n")
+	efprintf("\nAuthor: Chris Dzombak <https://www.dzombak.com>\n")
 }
 
 func main() {
 	quiet := flag.Bool("quiet", false, "Run quietly; only display the final URL.")
 	maxRedirects := flag.Int("max-redirects", 10, "Maximum number of redirects to follow.")
+	printVersion := flag.Bool("version", false, "Print version and exit.")
 	flag.Usage = usage
 	flag.Parse()
+	if *printVersion {
+		fmt.Println(version)
+		os.Exit(0)
+	}
 	if len(flag.Args()) != 1 {
 		flag.Usage()
 		os.Exit(1)

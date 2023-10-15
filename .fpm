@@ -1,0 +1,6 @@
+-s dir
+--name unshorten
+--description "Simple, verbose URL unshortener"
+--url "https://github.com/cdzombak/unshorten"
+--maintainer "Chris Dzombak <https://www.dzombak.com>"
+--license MIT
