@@ -55,7 +55,7 @@ make build
 cp out/unshorten $INSTALL_DIR
 ```
 
-## Docker images
+## Docker Images
 
 Docker images are available for a variety of Linux architectures from [Docker Hub](https://hub.docker.com/r/cdzombak/unshorten) and [GHCR](https://github.com/cdzombak/unshorten/pkgs/container/unshorten). Images are based on the `scratch` image and are as small as possible.
 
