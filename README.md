@@ -68,7 +68,7 @@ docker run --rm ghcr.io/cdzombak/unshorten:1 https://dzdz.cz
 
 ## About
 
-- Issues: [github.com/cdzombak/unshorten/issues]https://github.com/cdzombak/unshorten/issues
+- Issues: [github.com/cdzombak/unshorten/issues](https://github.com/cdzombak/unshorten/issues)
 - Author: [Chris Dzombak](https://www.dzombak.com)
   - [GitHub: @cdzombak](https://www.github.com/cdzombak)
 
