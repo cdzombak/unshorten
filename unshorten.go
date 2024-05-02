@@ -49,7 +49,7 @@ func main() {
 	}
 	redirects := 0
 	client := &http.Client{
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		CheckRedirect: func(req *http.Request, _ []*http.Request) error {
 			if redirects >= *maxRedirects {
 				return errTooManyRedirects
 			}
